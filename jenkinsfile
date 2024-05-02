@@ -48,22 +48,20 @@ pipeline {
     post {
         success {
                 echo "Pipeline succeeded!"
-                emailext(
-                    to: "renurose2402@gmail.com",
+                emailext to: "renurose2402@gmail.com",
                     subject: "Pipeline Status: Success",
                     body: "The Jenkins pipeline has completed successfully",
                     attachLog: true
-                )
+                
               }
 
         failure {
                 echo "Pipeline failed!"
-                emailext(
-                    to: "renurose2402@gmail.com",
+                emailext to: "renurose2402@gmail.com",
                     subject: "Pipeline Status: Failure",
                     body: "The Jenkins pipeline has failed.",
                     attachLog: true
-                )
+                
             }
         }
     
