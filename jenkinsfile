@@ -4,58 +4,50 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                  echo "Task: Build the code using a build automation tool (e.g., Maven)
-                   Tool: Maven
-                   Description: Compile and package the code using Maven"
+                  echo "Task: Build and compile the code using a build automation tool (e.g., Maven)"
+                   
             }
         }
         
         stage('Unit and Integration Tests') {
             steps {
-                // Task: Run unit tests and integration tests
-                // Tools: JUnit (for unit tests), Selenium or Postman (for integration tests)
-                // Description: Execute unit tests to verify individual components of the code, 
-                // and integration tests to ensure different components of the application work together correctly
+              echo "Task: Run unit tests and integration tests"
+               
             }
         }
         
         stage('Code Analysis') {
             steps {
-                // Task: Integrate a code analysis tool to analyze the code
-                // Tool: SonarQube, Checkstyle, PMD (research and select a tool)
-                // Description: Analyze the code to ensure it meets industry standards and identify any issues
+                echo "Task: Integrate a code analysis tool to analyze the code"
+                
             }
         }
         
         stage('Security Scan') {
             steps {
-                // Task: Perform a security scan on the code
-                // Tool: OWASP Dependency-Check, SonarQube, Snyk (research and select a tool)
-                // Description: Scan the code for vulnerabilities and security weaknesses
+               
+                echo "Task: Conducting security Scan the code for vulnerabilities and security weaknesses"
             }
         }
         
         stage('Deploy to Staging') {
             steps {
-                // Task: Deploy the application to a staging server (e.g., AWS EC2 instance)
-                // Tool: Jenkins Deploy to Container plugin, AWS CLI, Docker (choose a tool)
-                // Description: Deploy the application to a staging environment for testing
+                echo  "Task: Deploy the application to a staging server (e.g., AWS EC2 instance)"
+               
             }
         }
         
         stage('Integration Tests on Staging') {
             steps {
-                // Task: Run integration tests on the staging environment
-                // Tool: Selenium, Postman (choose a tool)
-                // Description: Test the application in a production-like environment to ensure it functions correctly
+             echo "Task: Run integration tests on the staging environment"
+              
             }
         }
         
         stage('Deploy to Production') {
             steps {
-                // Task: Deploy the application to a production server (e.g., AWS EC2 instance)
-                // Tool: Jenkins Deploy to Container plugin, AWS CLI, Docker (choose a tool)
-                // Description: Deploy the application to the production environment for end-users
+                echo "Task: Deploy the application to a production server (e.g., AWS EC2 instance)"
+                
             }
         }
     }
@@ -81,4 +73,4 @@ pipeline {
     }
 }
 }
-}
+
