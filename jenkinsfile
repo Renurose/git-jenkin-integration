@@ -4,73 +4,69 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                  echo "Task: Build and compile the code using a build automation tool (e.g., Maven)"
-                   
+                echo "Task: Build and compile the code using a build automation tool (e.g., Maven)"
             }
         }
         
         stage('Unit and Integration Tests') {
             steps {
-              echo "Task: Run unit tests and integration tests"
-               
+                echo "Task: Run unit tests and integration tests"
             }
         }
         
         stage('Code Analysis') {
             steps {
                 echo "Task: Integrate a code analysis tool to analyze the code"
-                
             }
         }
         
         stage('Security Scan') {
             steps {
-               
                 echo "Task: Conducting security Scan the code for vulnerabilities and security weaknesses"
             }
         }
         
         stage('Deploy to Staging') {
             steps {
-                echo  "Task: Deploy the application to a staging server (e.g., AWS EC2 instance)"
-               
+                echo "Task: Deploy the application to a staging server (e.g., AWS EC2 instance)"
             }
         }
         
         stage('Integration Tests on Staging') {
             steps {
-             echo "Task: Run integration tests on the staging environment"
-              
+                echo "Task: Run integration tests on the staging environment"
             }
         }
         
         stage('Deploy to Production') {
             steps {
                 echo "Task: Deploy the application to a production server (e.g., AWS EC2 instance)"
-                
             }
         }
     }
     
     post {
         success {
-             echo "Pipeline suceeded!"
-             emailext(
-                to: "renurose2402@gmail.com",
-                subject: "pipeline status:success",
-                body: "The jenkins pipeline has completed successfully",
-                attachlog: true
-            )
+            script {
+                echo "Pipeline succeeded!"
+                emailext(
+                    to: "renurose2402@gmail.com",
+                    subject: "Pipeline Status: Success",
+                    body: "The Jenkins pipeline has completed successfully",
+                    attachLog: true
+                )
+            }
         }
-       failure{
-        echo "pipeline failed"
-        emailext(
-           to: "renurose2402@gmail.com",
-           subject: "pipeline status: failure",
-           body: "The jenkins pipeline has failed.",
-           attachlog: true
-)
+        failure {
+            script {
+                echo "Pipeline failed!"
+                emailext(
+                    to: "renurose2402@gmail.com",
+                    subject: "Pipeline Status: Failure",
+                    body: "The Jenkins pipeline has failed.",
+                    attachLog: true
+                )
+            }
+        }
     }
 }
-}
-
