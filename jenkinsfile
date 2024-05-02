@@ -47,7 +47,6 @@ pipeline {
     
     post {
         success {
-            script {
                 echo "Pipeline succeeded!"
                 emailext(
                     to: "renurose2402@gmail.com",
@@ -55,10 +54,9 @@ pipeline {
                     body: "The Jenkins pipeline has completed successfully",
                     attachLog: true
                 )
-            }
-        }
+              }
+
         failure {
-            script {
                 echo "Pipeline failed!"
                 emailext(
                     to: "renurose2402@gmail.com",
@@ -68,6 +66,6 @@ pipeline {
                 )
             }
         }
-    }
+    
 
 }
