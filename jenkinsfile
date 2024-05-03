@@ -41,6 +41,11 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo "Task: Deploy the application to a production server (e.g., AWS EC2 instance)"
+                echo "Pipeline succeeded!"
+                emailext to: "renurose2402@gmail.com",
+                    subject: "Pipeline Status: Success",
+                    body: "The Jenkins pipeline has completed successfully",
+                    attachLog: true
             }
         }
     }
